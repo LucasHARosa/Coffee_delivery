@@ -1,5 +1,7 @@
-export function home(){
+import { Intro } from './Intro'
+
+export function Home(){
   return (
-    <header></header>
+    <Intro/>
   )
 }
