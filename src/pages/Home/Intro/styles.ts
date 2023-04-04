@@ -8,6 +8,11 @@ export const IntroContainer = styled.section`
     width: 476px;
     height: 360px;
   }
+  @media(max-width:1200px){
+    img{
+      visibility:hidden;
+    }
+  }
 `
 export const IntroTitle = styled.span`
   display: flex ;
@@ -31,10 +36,9 @@ export const SubTitle = styled.p`
 `
 
 export const GridContainer = styled.div`
-  display: inline-flex;
-  flex-wrap: wrap;
-  
-  gap: 1.25rem 2.5rem;
+  display: grid;
+  grid-template-columns: 14.438rem 18.375rem; 
+  gap: 1.25rem 2.5rem; 
   div{
     display: flex;
     align-items: center;
