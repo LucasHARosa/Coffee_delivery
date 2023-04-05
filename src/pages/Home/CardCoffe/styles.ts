@@ -1,11 +1,6 @@
 import styled from 'styled-components'
 
-export const ListaCoffe = styled.div`
-  display: flex;
-  gap: 2rem;
-  margin-top:3.375rem ;
-  flex-wrap: wrap;
-`
+
 
 export const CardCointainer = styled.div`
   background-color: ${(props) => props.theme['base-card']};
@@ -137,5 +132,10 @@ export const CardCart = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  &:disabled{
+    background-color: ${(props) => props.theme['purple-light']};
+  }
+
 
 `

@@ -1,31 +1,61 @@
-// import { createContext } from 'react'
+import { ReactNode, createContext, useState } from 'react'
+import { Coffe } from '../pages/Home'
 
-// interface Coffe{
-//   title: string
-//   descricao:string
-//   valor:number
-//   tags: Array<string>
-//   img:string
-//   quantidade:number
-// }
+interface CoffeUser{
+  coffe: Coffe
+  quantidade: number
+}
 
+//Interface do contexto
+interface CoffeContextData{
+  coffeSelected: CoffeUser[]
+  addCoffe: (coffe: Coffe, quantidade: number) => void
+}
 
-// const CoffeList:Array<Coffe> = [{
-//   "title":"Expresso Tradicional",
-//   "descricao":"O tradicional café feito com água quente e grãos moídos",
-//   "valor": 9.90,
-//   "tags":["Tradicional"],
-//   "img":"Image.png",
-//   "quantidade":0
-// },
-// {
-//   "title":"Expresso oio",
-//   "descricao":"O tradicional café feito com água quente e grãos moídos",
-//   "valor": 9.90,
-//   "tags":["Tradicional"],
-//   "img":"Image.png",
-//   "quantidade":0
-// }]
+// Criando o contexto
+export const CoffeContext = createContext({} as CoffeContextData)
 
+// Meras formalidades
+interface CoffeContextProviderProps{
+  children: ReactNode
+}
 
-// export const CoffeContext = createContext(CoffeList as Array<Coffe> )
+// função provider
+export function CoffeContextProvider({children}: CoffeContextProviderProps){
+
+  const [coffeSelected, setCoffeSelected] = useState<CoffeUser[]>([])
+
+  function addCoffe(coffe: Coffe, quantidade: number){
+    let achou = 0;
+    const newCoffeList = coffeSelected.filter(coffeUser => {
+      if(coffeUser.coffe.title === coffe.title){
+        coffeUser.quantidade = quantidade
+        achou = 1
+        return coffeUser
+      }else{
+        return coffeUser
+      }
+
+    })
+    if(achou === 0){
+      const coffeUser = {
+        coffe,
+        quantidade
+      }
+      setCoffeSelected([...coffeSelected, coffeUser])
+    }else{
+      setCoffeSelected(newCoffeList)
+    }
+    console.log(achou)
+  }
+
+  return(
+    <CoffeContext.Provider value={{
+      coffeSelected,
+      addCoffe
+
+    }}>
+      {children}
+    </CoffeContext.Provider>
+  )
+}
