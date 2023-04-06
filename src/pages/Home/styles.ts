@@ -6,3 +6,6 @@ export const ListaCoffe = styled.div`
   margin-top:3.375rem ;
   flex-wrap: wrap;
 `
+export const Tituloh1 = styled.h1`
+  color: ${(props) => props.theme['base-title']};
+`

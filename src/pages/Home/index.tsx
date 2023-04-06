@@ -1,7 +1,7 @@
 import { Intro } from './Intro'
 
 import { CardCoffe } from './CardCoffe'
-import { ListaCoffe } from './styles'
+import { ListaCoffe , Tituloh1} from './styles'
 
 export interface Coffe{
   title: string
@@ -132,7 +132,9 @@ export function Home(){
   return (
     <div>
       <Intro/>
+      <Tituloh1>Nossos Cafés</Tituloh1>
       <ListaCoffe>
+        
         {CoffeList.map((coffe,indice)=>{
           return(
             <CardCoffe 

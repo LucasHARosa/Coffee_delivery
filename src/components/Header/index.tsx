@@ -8,7 +8,9 @@ export function Header() {
   return (
     <HeaderContainer>
       <span>
-        <img src={LogoCoffe} alt="" />
+        <NavLink to="/" title="Home">
+          <img src={LogoCoffe} alt="" />
+        </NavLink>
       </span>
       <div>
         <span>
@@ -16,7 +18,7 @@ export function Header() {
           <p>Brasília, DF</p>
         </span>
         <nav>
-          <NavLink to="/cart" title="Carrinho">
+          <NavLink to="/cart" title="Cart">
             < ShoppingCart size={22} weight="fill"/>
           </NavLink>
         </nav>
