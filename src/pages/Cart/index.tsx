@@ -1,4 +1,4 @@
-import { ContainerData, ContainerFormAdress, ContainerFormPay, ContainerMain, ContainerPedido } from "./styles";
+import { BaseInput, ContainerData, ContainerFormAdress, ContainerFormPay, ContainerMain, ContainerPedido, ContainerResume, InputLong, InputMedio, Inputblock } from "./styles";
 
 export function Cart() {
   return (
@@ -7,6 +7,24 @@ export function Cart() {
         <h3>Complete seu pedido</h3>
         <ContainerFormAdress>
           <p>Endereço de entrega</p>
+          <form action="">
+            <div>
+              <Inputblock type="text" placeholder="CEP" />
+              <InputLong type="text" placeholder="Rua" />
+              <div>
+                <BaseInput type="text" placeholder="Número"/>
+                <InputLong type="text" placeholder="Complemento" />
+              </div>
+              <div>
+                <BaseInput type="text" placeholder="Bairro" />
+
+                <InputMedio type="text" placeholder="Cidade" />
+                <BaseInput type="text" placeholder="UF" />
+              </div>
+            </div>
+            
+            
+          </form>
         </ContainerFormAdress>
         <ContainerFormPay> 
           <p>Forma de pagamento</p>
@@ -14,6 +32,7 @@ export function Cart() {
       </ContainerData>
       <ContainerPedido>
         <h3>Cafés selecionados</h3>
+        <ContainerResume></ContainerResume>
       </ContainerPedido>
     </ContainerMain>
   )
