@@ -49,6 +49,41 @@ export function CoffeContextProvider({children}: CoffeContextProviderProps){
     console.log(achou)
   }
 
+  function removeCoffe(coffe: Coffe){
+    const newCoffeList = coffeSelected.filter(coffeUser => {
+      if(coffeUser.coffe.title !== coffe.title){
+        return coffeUser
+      }
+    })
+    setCoffeSelected(newCoffeList)
+  }
+
+  function addQuantidade(coffe: Coffe){
+    const newCoffeList = coffeSelected.filter(coffeUser => {
+      if(coffeUser.coffe.title === coffe.title){
+        coffeUser.quantidade += 1
+        return coffeUser
+      }else{
+        return coffeUser
+      }
+    })
+    setCoffeSelected(newCoffeList)
+  }
+
+  function removeQuantidade(coffe: Coffe){
+    const newCoffeList = coffeSelected.filter(coffeUser => {
+      if(coffeUser.coffe.title === coffe.title){
+        if(coffeUser.quantidade > 0){
+          coffeUser.quantidade -= 1
+        }
+        return coffeUser
+      }else{
+        return coffeUser
+      }
+    })
+    setCoffeSelected(newCoffeList)
+  }
+
   return(
     <CoffeContext.Provider value={{
       coffeSelected,
