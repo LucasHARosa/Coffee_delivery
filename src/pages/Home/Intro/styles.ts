@@ -10,7 +10,7 @@ export const IntroContainer = styled.section`
   }
   @media(max-width:1200px){
     img{
-      visibility:hidden;
+      display: none;
     }
   }
 `

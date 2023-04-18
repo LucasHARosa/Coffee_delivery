@@ -21,5 +21,21 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: 800;
     font-size: 1.125rem;
   }
+  button{
+    cursor: pointer;
+    transition: background-color 0.2s;
+    &:hover{
+      background-color: ${(props) => props.theme['base-button-hover']};
+    }
+  }
+  input{
+    &:hover{
+      box-shadow: 0px 0px 0px 1px ${(props) => props.theme['base-hover']};
+    }
+    &:focus{
+      outline: 0;
+      box-shadow: 0px 0px 0px 1px ${(props) => props.theme['base-hover']};
+    }
+  }
 
 `

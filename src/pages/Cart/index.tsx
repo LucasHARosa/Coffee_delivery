@@ -1,5 +1,5 @@
 import { CoffeItem } from "./CoffeItem";
-import { BaseInput, ContainerButton, ContainerData, ContainerFormAdress, ContainerFormPay, ContainerMain, ContainerPedido, ContainerResume, DivInfos, InputLong, InputMedio, InputSmall, Inputblock } from "./styles";
+import { BaseInput, ContainerButton, ContainerData, ContainerFormAdress, ContainerFormPay, ContainerMain, ContainerPedido, ContainerResume, DivInfos, InputLong, InputMedio, InputSmall, Inputblock, TextSmall, TextBig, TextMedium } from "./styles";
 import { CoffeContext } from "../../contexts/CoffeContext";
 
 import {MapPinLine, CurrencyDollar, CreditCard, Money, Bank} from 'phosphor-react'
@@ -7,7 +7,16 @@ import { useContext } from "react";
 
 export function Cart() {
 
-  const {coffeSelected} = useContext(CoffeContext)
+  const {coffeList} = useContext(CoffeContext)
+
+  let priceCoffes = coffeList.reduce((total, coffeUser) => {
+    return total + (coffeUser.price * coffeUser.amount)
+  }
+  , 0)
+
+  const priceDelivery = 3.5;
+  let priceTotal = priceCoffes + priceDelivery;
+
   return (
     <ContainerMain>
       <ContainerData>
@@ -37,8 +46,6 @@ export function Cart() {
                 <InputSmall type="text" placeholder="UF" />
               </div>
             </div>
-            
-            
           </form>
         </ContainerFormAdress>
         <ContainerFormPay> 
@@ -70,28 +77,37 @@ export function Cart() {
       <ContainerPedido>
         <h3>Cafés selecionados</h3>
         <ContainerResume>
-          {coffeSelected.map(coffeUser => {
+          {coffeList.map(coffeUser => {
             console.log(coffeUser)
-            return(
-              <CoffeItem 
-                key={coffeUser.coffe.title} 
-                coffe={coffeUser.coffe}
-              />
-            )
+            if(coffeUser.amount > 0){
+              return(
+                <CoffeItem 
+                  key={coffeUser.title} 
+                  coffe={coffeUser}
+                  quantidade={coffeUser.amount}
+                />
+              )
+            }
           })}
           
           <DivInfos>
             <div>
-              <p>Total de itens</p>
-              <p>R$ {coffeSelected.length}</p>
+              <TextSmall>Total de itens</TextSmall>
+              <TextMedium>
+                R$ {(priceCoffes.toFixed(2)).toString().replace('.',',')}
+              </TextMedium>
             </div>
             <div>
-              <p>Entrega</p>
-              <p>R$ 3,50</p>
+              <TextSmall>Entrega</TextSmall>
+              <TextMedium>
+                R$ {(priceDelivery.toFixed(2)).toString().replace('.',',')}
+              </TextMedium>
             </div>
             <div>
-              <p>Total</p>
-              <p>R$ 33,20</p>
+              <TextBig>Total</TextBig>
+              <TextBig>
+                R$ {(priceTotal.toFixed(2)).toString().replace('.',',')}
+              </TextBig>
             </div>
           </DivInfos>
           <button>

@@ -47,6 +47,11 @@ export const HeaderContainer = styled.header`
         width: 38px;
         height: 38px;
         border-radius: 0.375rem;
+
+        transition: background-color 0.2s;
+        &:hover{
+          background-color: ${(props) => props.theme['yellow-hover']};
+        }
       }
 
     }

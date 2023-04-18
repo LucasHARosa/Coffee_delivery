@@ -5,21 +5,22 @@ import {Coffe} from '../../Home'
 
 interface CoffeProps{
   coffe: Coffe
+  quantidade: number
 }
 
-export function CoffeItem({coffe}: CoffeProps){
+export function CoffeItem({coffe, quantidade}: CoffeProps){
   return(
     <ContainerCoffe>
       <div>
-        <img src="/coffes/Image.png" alt="" />
+        <img src={coffe.img} alt="" />
         <ContainerCoffeInfo>
-          <p>Expresso Tradicional</p>
+          <p>{coffe.title}</p>
           <div>
             <div>
               <button type="button">
                 <Minus size={14} weight="light"/>
               </button>
-              <p>1</p>
+              <p>{quantidade}</p>
               <button type="button" >
                 <Plus size={14} weight="light"/>
               </button>

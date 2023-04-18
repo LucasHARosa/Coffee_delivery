@@ -188,16 +188,35 @@ export const ContainerPedido = styled.section`
 
 export const ContainerResume = styled.div`
   background-color: ${(props) => props.theme['base-card']};
-  padding: 2.5rem;
+  padding: 8px 2.5rem 2.5rem;
   border-radius: 6px 44px;
 `
 
 export const DivInfos = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 0.75rem;
+  
+  margin-top: 25.5px;
   div{
     display: flex;
     justify-content: space-between;
     flex-direction: row;
   }
+`
+
+export const TextSmall = styled.p`
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 0.875rem;
+`
+export const TextBig = styled.p`
+  font-family: 'Roboto';
+  font-weight: 700;
+  font-size: 1.125rem;
+`
+export const TextMedium = styled.p`
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 1rem;
 `

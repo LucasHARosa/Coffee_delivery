@@ -68,29 +68,31 @@ export const CardPrice = styled.section`
   justify-content: space-between;
 
   margin-top: 2.063rem;
-  div{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  div:nth-child(1){
-    span:first-child{
-      font-family: 'Roboto';
-      font-style: normal;
-      font-weight: 400;
-      font-size: 0.875rem;
-
-      padding-top: 5px;
-      margin-right: 2px;
-    }
-    p{
-      font-weight: 800;
-      font-size: 1.5rem;
-      padding-bottom: 0;
-      
-    }
-  }
 `
+export const ContainerPrice = styled.div`
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
+  span:first-child{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.875rem;
+
+    padding-top: 5px;
+    margin-right: 2px;
+  }
+  p{
+    font-weight: 800;
+    font-size: 1.5rem;
+    padding-bottom: 0;
+    
+  }
+  
+`
+
 export const Cardfunction = styled.div`
   display: flex;
   gap: 0.5rem;
@@ -100,6 +102,8 @@ export const Cardfunction = styled.div`
     border-radius: 0.375rem;
     padding:0.531rem 0.5rem;
 
+    width: 4.5rem;
+    height: 2.375rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -112,16 +116,19 @@ export const Cardfunction = styled.div`
       background-color: transparent;
       color: ${(props) => props.theme['purple']};
     }
-    span{
-      font-family: 'Roboto';
-      font-style: normal;
-      font-size: 1rem;
-      font-weight: 400;
-      line-height: 130%;
-     
-    }
   }
 `
+export const TextAmount = styled.p` 
+  font-family: 'Roboto';
+  font-style: normal;
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: center;
+
+  width:1.25rem;
+  margin-top: 1px;
+`
+
 export const CardCart = styled.button`
   border: 0;
   background-color: ${(props) => props.theme['purple-dark']};
@@ -135,6 +142,10 @@ export const CardCart = styled.button`
 
   &:disabled{
     background-color: ${(props) => props.theme['purple-light']};
+    cursor: default;
+  }
+  &:hover:not([disabled]){
+    background-color: ${(props) => props.theme['purple']};
   }
 
 

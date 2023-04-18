@@ -5,7 +5,7 @@ export const ContainerCoffe = styled.main`
   flex-direction: row;
   justify-content: space-between;
 
-  padding: 0.5rem 0.25rem 2rem ;
+  padding: 2rem 0.25rem;
   border-bottom: 1px solid #E6E5E5;
 
   div:first-child{

@@ -1,5 +1,6 @@
-import { CardCart, CardCointainer, CardDescription, CardPrice, CardTag, CardTags, CardTitle, Cardfunction, Cardinfo } from "./styles"
-import { Coffe } from "../index"
+import { CardCart, CardCointainer, CardDescription, CardPrice, CardTag, CardTags, CardTitle, Cardfunction, Cardinfo, ContainerPrice, TextAmount } from "./styles"
+
+import { Coffe } from "../../../contexts/CoffeContext"
 import { Plus, Minus ,ShoppingCartSimple } from "phosphor-react"
 import { useContext, useEffect, useState } from "react"
 import { CoffeContext } from "../../../contexts/CoffeContext"
@@ -9,34 +10,33 @@ interface CardCoffeProps{
   coffe: Coffe
 }
 
-
 export function CardCoffe ({coffe}: CardCoffeProps){
-  const [quantidade, setQuantidade] = useState(0)
+  const [amount, setamount] = useState(coffe.amount)
   const [enablebutton, setEnablebutton] = useState(false)
   const {addCoffe} = useContext(CoffeContext)
   
-  function addQuantidade(){
-    setQuantidade(quantidade + 1)
+  function addamount(){
+    setamount(amount + 1)
   }  
   
-  function removeQuantidade(){
-    if(quantidade > 0){
-      setQuantidade(quantidade - 1)
+  function removeamount(){
+    if(amount > 0){
+      setamount(amount - 1)
     }
   }
   function handleAddCoffe(){
-    addCoffe(coffe,quantidade)
+    addCoffe(coffe,amount)
   }
   
   
   useEffect(()=>{
-    if(quantidade > 0){
+    if(amount > 0){
       setEnablebutton(true)
     }
     else{
       setEnablebutton(false)
     }
-  },[quantidade])
+  },[amount])
 
 
   return(
@@ -54,17 +54,17 @@ export function CardCoffe ({coffe}: CardCoffeProps){
         <CardTitle>{coffe.title}</CardTitle>
         <CardDescription>{coffe.descricao}</CardDescription>
         <CardPrice>
-          <div>
+          <ContainerPrice>
             <span>R$</span>
             <p>9,90</p>
-          </div>
+          </ContainerPrice>
           <Cardfunction >
             <div>
-              <button type="button" onClick={removeQuantidade}>
+              <button type="button" onClick={removeamount}>
                 <Minus size={14} weight="light"/>
               </button>
-              <span>{quantidade}</span>
-              <button type="button" onClick={addQuantidade}>
+              <TextAmount>{amount}</TextAmount>
+              <button type="button" onClick={addamount}>
                 <Plus size={14} weight="light"/>
               </button>
             </div>
