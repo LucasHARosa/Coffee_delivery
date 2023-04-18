@@ -22,6 +22,7 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 1.125rem;
   }
   button{
+    border: 0;
     cursor: pointer;
     transition: background-color 0.2s;
     &:hover{

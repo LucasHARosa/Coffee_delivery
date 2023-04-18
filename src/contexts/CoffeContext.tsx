@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useState } from 'react'
+import { ReactNode, createContext, useEffect, useState } from 'react'
 
 export interface Coffe{
   title: string
@@ -14,6 +14,9 @@ export interface Coffe{
 interface CoffeContextData{
   coffeList: Coffe[]
   addCoffe: (coffe: Coffe, quantidade: number) => void
+  removeCoffe: (coffe: Coffe) => void
+  addQuantity: (coffe: Coffe) => void
+  removeQuantity: (coffe: Coffe) => void
 }
 
 // Criando o contexto
@@ -145,6 +148,19 @@ export function CoffeContextProvider({children}: CoffeContextProviderProps){
 
   ])
 
+  useEffect(() => {
+    const coffeStorage = localStorage.getItem('@coffe-delivery:coffe-List-1.0.0')
+    if(coffeStorage){
+      setcoffeList(JSON.parse(coffeStorage))
+      console.log("carregou")
+    }
+  }, [])
+
+  function saveCoffe(){
+    localStorage.setItem('@coffe-delivery:coffe-List-1.0.0', JSON.stringify(coffeList))
+    console.log("salvou")
+  }
+
   function addCoffe(coffe: Coffe, quantidade: number){
     const newCoffeList = coffeList.filter(coffeUser => {
       if(coffeUser.title === coffe.title){
@@ -155,6 +171,7 @@ export function CoffeContextProvider({children}: CoffeContextProviderProps){
       }
     })
     setcoffeList(newCoffeList)
+    saveCoffe()
   }
 
   function removeCoffe(coffe: Coffe){
@@ -165,6 +182,7 @@ export function CoffeContextProvider({children}: CoffeContextProviderProps){
       }
     })
     setcoffeList(newCoffeList)
+    saveCoffe()
   }
 
   function addQuantity(coffe: Coffe){
@@ -177,6 +195,7 @@ export function CoffeContextProvider({children}: CoffeContextProviderProps){
       }
     })
     setcoffeList(newCoffeList)
+    saveCoffe()
   }
 
   function removeQuantity(coffe: Coffe){
@@ -191,12 +210,16 @@ export function CoffeContextProvider({children}: CoffeContextProviderProps){
       }
     })
     setcoffeList(newCoffeList)
+    saveCoffe()
   }
 
   return(
     <CoffeContext.Provider value={{
       coffeList,
-      addCoffe
+      addCoffe,
+      addQuantity,
+      removeQuantity,
+      removeCoffe
 
     }}>
       {children}
