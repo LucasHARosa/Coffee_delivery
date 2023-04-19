@@ -156,8 +156,8 @@ export function CoffeContextProvider({children}: CoffeContextProviderProps){
     }
   }, [])
 
-  function saveCoffe(){
-    localStorage.setItem('@coffe-delivery:coffe-List-1.0.0', JSON.stringify(coffeList))
+  function saveCoffe(coffe:Coffe[]){
+    localStorage.setItem('@coffe-delivery:coffe-List-1.0.0', JSON.stringify(coffe))
     console.log("salvou")
   }
 
@@ -171,7 +171,7 @@ export function CoffeContextProvider({children}: CoffeContextProviderProps){
       }
     })
     setcoffeList(newCoffeList)
-    saveCoffe()
+    saveCoffe(newCoffeList)
   }
 
   function removeCoffe(coffe: Coffe){
@@ -180,9 +180,12 @@ export function CoffeContextProvider({children}: CoffeContextProviderProps){
         coffeUser.amount = 0
         return coffeUser
       }
+      else{
+        return coffeUser
+      }
     })
     setcoffeList(newCoffeList)
-    saveCoffe()
+    saveCoffe(newCoffeList)
   }
 
   function addQuantity(coffe: Coffe){
@@ -195,7 +198,7 @@ export function CoffeContextProvider({children}: CoffeContextProviderProps){
       }
     })
     setcoffeList(newCoffeList)
-    saveCoffe()
+    saveCoffe(newCoffeList)
   }
 
   function removeQuantity(coffe: Coffe){
@@ -210,7 +213,7 @@ export function CoffeContextProvider({children}: CoffeContextProviderProps){
       }
     })
     setcoffeList(newCoffeList)
-    saveCoffe()
+    saveCoffe(newCoffeList)
   }
 
   return(

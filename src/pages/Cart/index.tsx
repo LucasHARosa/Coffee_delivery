@@ -36,7 +36,6 @@ export function Cart() {
                 <CoffeItem 
                   key={coffeUser.title} 
                   coffe={coffeUser}
-                  quantidade={coffeUser.amount}
                 />
               )
             }

@@ -129,7 +129,7 @@ export const TextAmount = styled.p`
   margin-top: 1px;
 `
 
-export const CardCart = styled.button`
+export const CardCartButton = styled.button`
   border: 0;
   background-color: ${(props) => props.theme['purple-dark']};
   color: ${(props) => props.theme['white']};
@@ -139,13 +139,16 @@ export const CardCart = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-
+  transition: box-shadow 0.2s ease;
   &:disabled{
     background-color: ${(props) => props.theme['purple-light']};
     cursor: default;
   }
   &:hover:not([disabled]){
     background-color: ${(props) => props.theme['purple']};
+  }
+  &:active:not([disabled]){
+    box-shadow: 0 0 0 4px ${(props) => props.theme['purple']};
   }
 
 

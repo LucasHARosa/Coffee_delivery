@@ -1,4 +1,4 @@
-import { CardCart, CardCointainer, CardDescription, CardPrice, CardTag, CardTags, CardTitle, Cardfunction, Cardinfo, ContainerPrice, TextAmount } from "./styles"
+import { CardCartButton, CardCointainer, CardDescription, CardPrice, CardTag, CardTags, CardTitle, Cardfunction, Cardinfo, ContainerPrice, TextAmount } from "./styles"
 
 import { Coffe } from "../../../contexts/CoffeContext"
 import { Plus, Minus ,ShoppingCartSimple } from "phosphor-react"
@@ -68,9 +68,9 @@ export function CardCoffe ({coffe}: CardCoffeProps){
                 <Plus size={14} weight="light"/>
               </button>
             </div>
-            <CardCart disabled={!enablebutton} onClick={handleAddCoffe}>
+            <CardCartButton disabled={!enablebutton} onClick={handleAddCoffe}>
               <ShoppingCartSimple size={22} weight="fill"/>
-            </CardCart>
+            </CardCartButton>
           </Cardfunction >
         </CardPrice>
       </Cardinfo>

@@ -1,14 +1,21 @@
 import { Plus, Minus, Trash} from "phosphor-react"
 import { ContainerCoffe, ContainerCoffeInfo } from "./styles"
-import {Coffe} from '../../Home'
+import {Coffe, CoffeContext} from '../../../contexts/CoffeContext'
+import { useContext } from "react"
 
 
-interface CoffeProps{
-  coffe: Coffe
-  quantidade: number
-}
-
-export function CoffeItem({coffe, quantidade}: CoffeProps){
+export function CoffeItem({coffe}: any){
+  const {addQuantity, removeQuantity, removeCoffe} = useContext(CoffeContext)
+  function handleRemoveQuantity (){
+    removeQuantity(coffe)
+  }
+  function handleAddQuantity (){
+    addQuantity(coffe)
+  }
+  function handleRemoveCoffe (){
+    removeCoffe(coffe)
+  }
+  
   return(
     <ContainerCoffe>
       <div>
@@ -17,15 +24,15 @@ export function CoffeItem({coffe, quantidade}: CoffeProps){
           <p>{coffe.title}</p>
           <div>
             <div>
-              <button type="button">
+              <button type="button" onClick={handleRemoveQuantity}>
                 <Minus size={14} weight="light"/>
               </button>
-              <p>{quantidade}</p>
-              <button type="button" >
+              <p>{coffe.amount}</p>
+              <button type="button" onClick={handleAddQuantity}>
                 <Plus size={14} weight="light"/>
               </button>
             </div>
-            <button>
+            <button onClick={handleRemoveCoffe}>
               <Trash size={16}/>
               <p>REMOVER</p>
             </button>
