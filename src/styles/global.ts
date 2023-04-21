@@ -38,5 +38,8 @@ export const GlobalStyle = createGlobalStyle`
       box-shadow: 0px 0px 0px 1px ${(props) => props.theme['base-hover']};
     }
   }
+  a{
+    text-decoration: none;
+  }
 
 `

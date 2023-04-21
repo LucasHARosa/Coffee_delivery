@@ -33,26 +33,24 @@ export const ContainerFormAdress = styled.div`
       }
     }
   }
-  form{
-    div:first-child{
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin-top: 2rem;
-      div:nth-child(3){
-        display: flex; 
-        gap: 0.75rem;
-      }
-      div:nth-child(4){
-        display: flex;
-        gap: 0.75rem;
-      }
-    }
-    
-  }
-  
-  
 `
+export const ContainerInput = styled.form`
+  div:first-child{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+    div:nth-child(3){
+      display: flex; 
+      gap: 0.75rem;
+    }
+    div:nth-child(4){
+      display: flex;
+      gap: 0.75rem;
+    }
+  }
+`
+
 
 export const BaseInput = styled.input`
   background-color: ${(props) => props.theme['base-input']};

@@ -67,5 +67,9 @@ export const ContainerButton = styled.div`
       font-weight: 400;
       font-size: 0.75rem;
     }
+    &.active{
+      background-color: ${(props) => props.theme['purple-light']};
+      box-shadow: 0px 0px 3px ${(props) => props.theme['purple']};
+    }
   }
 `

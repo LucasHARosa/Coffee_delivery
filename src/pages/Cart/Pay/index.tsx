@@ -1,7 +1,40 @@
 import { ContainerPay, ContainerButton } from './styles';
 import { CurrencyDollar, CreditCard, Money, Bank} from 'phosphor-react'
+import { CoffeContext } from "../../../contexts/CoffeContext";
+import { useContext, useState } from "react";
+
+interface ButtonProps {
+  children: React.ReactNode;
+  active: boolean;
+  onClick: (event: any) => void;
+}
+
+const Button = ({ children, active, onClick }: ButtonProps) => {
+  return (
+    <button
+      className={`button ${active ? "active" : ""}`}
+      onClick={onClick}
+    >
+      {children}
+    </button>
+  );
+};
 
 export function Pay() {
+  const [selectedButton , setSelectedButton ] = useState('')
+  const {savePayment} = useContext(CoffeContext)
+  function handleSavePayment(event: any){
+    const formatted = event.target.textContent.toLowerCase()
+    savePayment(formatted)
+    console.log(formatted)
+    if(formatted === 'cartão de crédito'){
+      setSelectedButton('credit')
+    }else if(formatted === 'cartão de débito'){
+      setSelectedButton('debit')
+    }else{
+      setSelectedButton('money')
+    }
+  }
   return(
     <ContainerPay> 
       <div>
@@ -14,18 +47,18 @@ export function Pay() {
         </div>
       </div>
       <ContainerButton>
-        <button type="button">
+        <Button  onClick={handleSavePayment} active={selectedButton == 'credit'}>
           <span> <CreditCard size={16}/> </span>
           <p>CARTÃO DE CRÉDITO</p>
-        </button>
-        <button type="button">
+        </Button>
+        <Button  onClick={handleSavePayment} active={selectedButton == 'debit'}>
           <span><Bank size={16}/></span>
           <p>CARTÃO DE DÉBITO</p>
-        </button>
-        <button type="button">
+        </Button>
+        <Button  onClick={handleSavePayment} active={selectedButton == 'money'}>
           <span><Money size={16}/></span>
           <p>DINHEIRO</p>
-        </button>
+        </Button>
       </ContainerButton>
     </ContainerPay>
   )

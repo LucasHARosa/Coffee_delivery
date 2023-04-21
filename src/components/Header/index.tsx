@@ -19,7 +19,7 @@ export function Header() {
         </span>
         <nav>
           <NavLink to="/cart" title="Cart">
-            < ShoppingCart size={22} weight="fill"/>
+            <ShoppingCart size={22} weight="fill"/>
           </NavLink>
         </nav>
       </div>

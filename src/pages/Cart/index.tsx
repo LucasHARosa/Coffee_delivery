@@ -2,14 +2,19 @@ import { CoffeItem } from "./CoffeItem";
 import { ContainerData, ContainerMain, ContainerPedido, ContainerResume, DivInfos,  TextSmall, TextBig, TextMedium, CheckButton } from "./styles";
 import { CoffeContext } from "../../contexts/CoffeContext";
 
-
 import { useContext } from "react";
 import { FormAdress } from "./FormAddress";
 import { Pay } from "./Pay";
+import { NavLink } from "react-router-dom";
+
+
 
 export function Cart() {
 
-  const {coffeList} = useContext(CoffeContext)
+  const {coffeList, dataUser} = useContext(CoffeContext)
+  const values = Object.values(dataUser)
+  let allValuesAreNotEmpty = values.every((value) => value !== '');
+  
 
   let priceCoffes = coffeList.reduce((total, coffeUser) => {
     return total + (coffeUser.price * coffeUser.amount)
@@ -18,6 +23,7 @@ export function Cart() {
 
   const priceDelivery = 3.5;
   let priceTotal = priceCoffes + priceDelivery;
+
 
   return (
     <ContainerMain>
@@ -61,9 +67,20 @@ export function Cart() {
               </TextBig>
             </div>
           </DivInfos>
-          <CheckButton>
-            CONFIRMAR PEDIDO
-          </CheckButton>
+          {allValuesAreNotEmpty ?
+            <NavLink to="/order" title="order">
+              <CheckButton>
+                ACOMPANHAR
+              </CheckButton>
+            </NavLink>
+          :
+            <CheckButton form="endereco" type="submit">
+              CONFIRMAR PEDIDO
+            </CheckButton>
+          }
+          
+          
+          
         </ContainerResume>
       </ContainerPedido>
     </ContainerMain>

@@ -9,6 +9,16 @@ export interface Coffe{
   amount: number
 }
 
+interface DataUser{
+  cep: string
+  rua: string
+  numero: string
+  complemento: string
+  bairro: string
+  cidade: string
+  uf: string
+  payment ?: string
+}
 
 //Interface do contexto
 interface CoffeContextData{
@@ -17,6 +27,9 @@ interface CoffeContextData{
   removeCoffe: (coffe: Coffe) => void
   addQuantity: (coffe: Coffe) => void
   removeQuantity: (coffe: Coffe) => void
+  saveDataUser: (data: DataUser) => void
+  dataUser: DataUser
+  savePayment: (payment: string) => void
 }
 
 // Criando o contexto
@@ -29,7 +42,16 @@ interface CoffeContextProviderProps{
 
 // função provider
 export function CoffeContextProvider({children}: CoffeContextProviderProps){
-
+  const [dataUser, setDataUser] = useState<DataUser>({
+    cep: '',
+    rua: '',
+    numero: '',
+    complemento: '',
+    bairro: '',
+    cidade: '',
+    uf: '',
+    payment: ''
+  } as DataUser)
   const [coffeList, setcoffeList] = useState<Coffe[]>([
   {
     "title":"Expresso Tradicional",
@@ -148,6 +170,15 @@ export function CoffeContextProvider({children}: CoffeContextProviderProps){
 
   ])
 
+  function saveDataUser(dataNew: DataUser){
+    dataNew.payment = dataUser.payment
+    setDataUser(dataNew)
+  }
+
+  function savePayment(payment: string){
+    setDataUser({...dataUser, payment})
+  }
+
   useEffect(() => {
     const coffeStorage = localStorage.getItem('@coffe-delivery:coffe-List-1.0.0')
     if(coffeStorage){
@@ -222,8 +253,10 @@ export function CoffeContextProvider({children}: CoffeContextProviderProps){
       addCoffe,
       addQuantity,
       removeQuantity,
-      removeCoffe
-
+      removeCoffe,
+      saveDataUser,
+      dataUser,
+      savePayment
     }}>
       {children}
     </CoffeContext.Provider>

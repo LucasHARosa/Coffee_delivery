@@ -91,5 +91,6 @@ export const CheckButton = styled.button`
   &:hover{
     background-color: ${(props) => props.theme['yellow-dark']};
   }
+  
 
 `
