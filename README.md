@@ -19,21 +19,21 @@
 
 # Funcionamento
 <p align="center">
-    <img height="400" src="./imagens/Coffe_delivery2.gif" alt="">
+    <img height="500" src="./imagens/Coffe_delivery2.gif" alt="">
 </p>
 
 ### Home
 <p align="center">
-    <img height="400" src="./imagens/coffe_deliveryHome.png" alt="">
+    <img height="500" src="./imagens/coffe_deliveryHome.png" alt="">
 </p>
 <p align="center">
-    <img  height="400" src="./imagens/coffe_deliveryHome2.png" alt="">
+    <img  height="500" src="./imagens/coffe_deliveryHome2.png" alt="">
 </p>
 
 
 ### Carrinho
 <p align="center">
-    <img  height="400" src="./imagens/coffe_deliverycart.png" alt="">
+    <img  height="500" src="./imagens/coffe_deliverycart.png" alt="">
 </p>
 
 ### Pedido
