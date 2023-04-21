@@ -1,10 +1,16 @@
 import { NavLink } from 'react-router-dom'
-import { HeaderContainer } from './styles'
+import { HeaderContainer, NotificationBadge } from './styles'
 import { ShoppingCart, MapPin} from 'phosphor-react'
+import { useContext } from "react";
+import { CoffeContext } from "../../contexts/CoffeContext";
 
 import LogoCoffe from '../../assets/LogoCoffe.svg'
 
 export function Header() {
+  const {coffeList} = useContext(CoffeContext)
+  const amountCoffes = coffeList.reduce((total, coffeUser) => {
+    return total + coffeUser.amount
+  }, 0)
   return (
     <HeaderContainer>
       <span>
@@ -18,6 +24,7 @@ export function Header() {
           <p>Brasília, DF</p>
         </span>
         <nav>
+          <NotificationBadge>{amountCoffes}</NotificationBadge>
           <NavLink to="/cart" title="Cart">
             <ShoppingCart size={22} weight="fill"/>
           </NavLink>

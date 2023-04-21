@@ -36,7 +36,7 @@ export const HeaderContainer = styled.header`
     }
     nav{
       display: flex;
-      
+      position: relative;
       a{
         background-color: ${(props) => props.theme['yellow-light']};
         color: ${(props) => props.theme['yellow-dark']};
@@ -57,4 +57,22 @@ export const HeaderContainer = styled.header`
     }
   }
   
+`
+export const NotificationBadge = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  background-color: ${(props) => props.theme['yellow-dark']};
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  font-family: 'Roboto';
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #fff; 
+
 `
