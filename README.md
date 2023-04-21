@@ -15,7 +15,7 @@
 * Zod (Schema validation)
 * Router Dom
 * styled-components
-* phosphor-reac
+* phosphor-react
 
 # Funcionamento
 <p align="center">
