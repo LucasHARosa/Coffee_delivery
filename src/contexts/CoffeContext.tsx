@@ -183,13 +183,11 @@ export function CoffeContextProvider({children}: CoffeContextProviderProps){
     const coffeStorage = localStorage.getItem('@coffe-delivery:coffe-List-1.0.0')
     if(coffeStorage){
       setcoffeList(JSON.parse(coffeStorage))
-      console.log("carregou")
     }
   }, [])
 
   function saveCoffe(coffe:Coffe[]){
     localStorage.setItem('@coffe-delivery:coffe-List-1.0.0', JSON.stringify(coffe))
-    console.log("salvou")
   }
 
   function addCoffe(coffe: Coffe, quantidade: number){

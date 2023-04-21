@@ -26,7 +26,6 @@ export function Pay() {
   function handleSavePayment(event: any){
     const formatted = event.target.textContent.toLowerCase()
     savePayment(formatted)
-    console.log(formatted)
     if(formatted === 'cartão de crédito'){
       setSelectedButton('credit')
     }else if(formatted === 'cartão de débito'){

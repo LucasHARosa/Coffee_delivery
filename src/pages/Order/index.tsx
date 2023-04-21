@@ -10,7 +10,7 @@ export function Order() {
   return (
     <Container>
       <ContainerTitle>
-        <h1>Seu pedido foi realizado com sucesso</h1>
+        <h1>Uhu! Pedido confirmado</h1>
         <p>Agora é só aguardar que logo o café chegará até você</p>
       </ContainerTitle>
       <ContainerOrder>

@@ -38,11 +38,8 @@ export function FormAdress() {
 
   function handleForm(data: NewFormData){
     saveDataUser(data)
-    console.log(dataUser)
-    
   }
 
-  
   return (
     <ContainerFormAdress>
       <div>
