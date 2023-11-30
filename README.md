@@ -3,9 +3,9 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/LucasHARosa/Coffe_delivery)
 ![GitHub last commit](https://img.shields.io/github/last-commit/LucasHARosa/Coffe_delivery)
 
-# Coffe Delivery
+# Coffee Delivery
 
-<strong>Coffe Delivery</strong> É uma aplicação desenvolvida em ReactJS para web que simula um delivery de cafés, onde é possível selecionar os cafés de sua preferência, informar seu endereço e selecionar a forma de pagamento. Trata-se de um projeto Front End onde o objetivo é performar da melhor forma todos os componentes.
+<strong>Coffee Delivery</strong> É uma aplicação desenvolvida em ReactJS para web que simula um delivery de cafés, onde é possível selecionar os cafés de sua preferência, informar seu endereço e selecionar a forma de pagamento. Trata-se de um projeto Front End onde o objetivo é performar da melhor forma todos os componentes.
 
 ### Tecnologias usadas nessa aplicação:
 
