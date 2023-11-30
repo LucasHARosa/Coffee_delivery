@@ -8,10 +8,10 @@ import { Order } from './pages/Order'
 export function Router() {
   return (
     <Routes>
-      <Route path="/" element={<DefaultLayout />}>
-        <Route path="/" element={<Home />} />
-        <Route path="/cart" element={<Cart/>} />
-        <Route path="/order" element={<Order/>}/>
+      <Route path="/Coffee_delivery/" element={<DefaultLayout />}>
+        <Route path="/Coffee_delivery/" element={<Home />} />
+        <Route path="/Coffee_delivery/cart" element={<Cart/>} />
+        <Route path="/Coffee_delivery/order" element={<Order/>}/>
       </Route>
     </Routes>
   )
