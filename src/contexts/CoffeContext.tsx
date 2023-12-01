@@ -1,4 +1,19 @@
 import { ReactNode, createContext, useEffect, useState } from 'react'
+import Image from '../assets/coffes/Image.png'
+import Type_Americano from '../assets/coffes/Type_Americano.png'
+import Type_Árabe from '../assets/coffes/Type_Árabe.png'
+import Type_Cafe_com_Leite from '../assets/coffes/Type_Cafe_com_Leite.png'
+import Type_Cafe_Gelado from '../assets/coffes/Type_Cafe_Gelado.png'
+import Type_Capuccino from '../assets/coffes/Type_Capuccino.png'
+import Type_Chocolate_Quente from '../assets/coffes/Type_Chocolate_Quente.png'
+import Type_Cubano from '../assets/coffes/Type_Cubano.png'
+import Type_Expresso_Cremoso from '../assets/coffes/Type_Expresso_Cremoso.png'
+import Type_Havaiano from '../assets/coffes/Type_Havaiano.png'
+import Type_Irlandês from '../assets/coffes/Type_Irlandês.png'
+import Type_Latte from '../assets/coffes/Type_Latte.png'
+import Type_Macchiato from '../assets/coffes/Type_Macchiato.png'
+import Type_Mochaccino from '../assets/coffes/Type_Mochaccino.png'
+
 
 export interface Coffe{
   title: string
@@ -58,7 +73,7 @@ export function CoffeContextProvider({children}: CoffeContextProviderProps){
     "descricao":"O tradicional café feito com água quente e grãos moídos",
     "price": 9.90,
     "tags":["Tradicional"],
-    "img":'/coffes/Image.png',
+    "img":Image,
     "amount": 0
   },
   {
@@ -66,7 +81,7 @@ export function CoffeContextProvider({children}: CoffeContextProviderProps){
     "descricao":"Expresso diluído, menos intenso que o tradicional",
     "price": 9.90,
     "tags":["Tradicional"],
-    "img":'/coffes/Type=Americano.png',
+    "img":Type_Americano,
     "amount": 0
   },
   {
@@ -74,7 +89,7 @@ export function CoffeContextProvider({children}: CoffeContextProviderProps){
     "descricao":"Café expresso tradicional com espuma cremosa",
     "price": 9.90,
     "tags":["Tradicional"],
-    "img":'/coffes/Type=Expresso Cremoso.png',
+    "img":Type_Expresso_Cremoso,
     "amount": 0
   },
   {
@@ -82,7 +97,7 @@ export function CoffeContextProvider({children}: CoffeContextProviderProps){
     "descricao":"Bebida preparada com café expresso e cubos de gelo",
     "price": 9.90,
     "tags":["Tradicional", "gelado"],
-    "img":'/coffes/Type=Café Gelado.png',
+    "img":Type_Cafe_Gelado,
     "amount": 0
   },
   {
@@ -90,7 +105,7 @@ export function CoffeContextProvider({children}: CoffeContextProviderProps){
     "descricao":"Meio a meio de expresso tradicional com leite vaporizado",
     "price": 9.90,
     "tags":["Tradicional", "Com leite"],
-    "img":'/coffes/Type=Café com Leite.png',
+    "img":Type_Cafe_com_Leite,
     "amount": 0
   },
   {
@@ -98,7 +113,7 @@ export function CoffeContextProvider({children}: CoffeContextProviderProps){
     "descricao":"Uma dose de café expresso com o dobro de leite e espuma cremosa",
     "price": 9.90,
     "tags":["Tradicional", "Com leite"],
-    "img":'/coffes/Type=Latte.png',
+    "img":Type_Latte,
     "amount": 0
   },
   {
@@ -106,7 +121,7 @@ export function CoffeContextProvider({children}: CoffeContextProviderProps){
     "descricao":"Bebida com canela feita de doses iguais de café, leite e espuma",
     "price": 9.90,
     "tags":["Tradicional","Com leite"],
-    "img":'/coffes/Type=Capuccino.png',
+    "img":Type_Capuccino,
     "amount": 0
   },
   {
@@ -114,7 +129,7 @@ export function CoffeContextProvider({children}: CoffeContextProviderProps){
     "descricao":"Café expresso misturado com um pouco de leite quente e espuma",
     "price": 9.90,
     "tags":["Tradicional", "Com leite"],
-    "img":'/coffes/Type=Macchiato.png',
+    "img":Type_Macchiato,
     "amount": 0
   },
   {
@@ -122,7 +137,7 @@ export function CoffeContextProvider({children}: CoffeContextProviderProps){
     "descricao":"Café expresso com calda de chocolate, pouco leite e espuma",
     "price": 9.90,
     "tags":["Tradicional", "Com leite"],
-    "img":'/coffes/Type=Mochaccino.png',
+    "img":Type_Mochaccino,
     "amount": 0
   },
   {
@@ -130,7 +145,7 @@ export function CoffeContextProvider({children}: CoffeContextProviderProps){
     "descricao":"Bebida feita com chocolate dissolvido no leite quente e café",
     "price": 9.90,
     "tags":["Especial", "Com leite"],
-    "img":'/coffes/Type=Chocolate Quente.png',
+    "img":Type_Chocolate_Quente,
     "amount": 0
   },
   {
@@ -138,7 +153,7 @@ export function CoffeContextProvider({children}: CoffeContextProviderProps){
     "descricao":"Drink gelado de café expresso com rum, creme de leite e hortelã",
     "price": 9.90,
     "tags":["Especial","Alcoólico", "Gelado"],
-    "img":'/coffes/Type=Cubano.png',
+    "img":Type_Cubano,
     "amount": 0
   },
   {
@@ -146,7 +161,7 @@ export function CoffeContextProvider({children}: CoffeContextProviderProps){
     "descricao":"Bebida adocicada preparada com café e leite de coco",
     "price": 9.90,
     "tags":["Especial"],
-    "img":'/coffes/Type=Havaiano.png',
+    "img":Type_Havaiano,
     "amount": 0
   }
   ,
@@ -155,7 +170,7 @@ export function CoffeContextProvider({children}: CoffeContextProviderProps){
     "descricao":"Bebida a base de café, uísque irlandês, açúcar e chantilly",
     "price": 9.90,
     "tags":["Especial","Alcoólico"],
-    "img":'/coffes/Type=Irlandês.png',
+    "img":Type_Irlandês,
     "amount": 0
   }
   ,
@@ -164,7 +179,7 @@ export function CoffeContextProvider({children}: CoffeContextProviderProps){
     "descricao":"Bebida preparada com grãos de café árabe e especiarias",
     "price": 9.90,
     "tags":["Especial"],
-    "img":'/coffes/Type=Árabe.png',
+    "img":Type_Árabe,
     "amount": 0
   }
 
